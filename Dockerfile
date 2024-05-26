@@ -8,6 +8,9 @@ RUN apt-get update && \
     apt-get install -y python3.11 python3.11-venv python3.11-dev git build-essential libsndfile1 libffi-dev libssl-dev ffmpeg espeak-ng
 
 
+# Ensure pip is installed
+RUN apt-get install -y python3-pip
+
 # Install CUDA toolkit if needed (uncomment if using GPU)
 RUN apt-get install -y nvidia-cuda-toolkit
 
@@ -18,7 +21,7 @@ RUN git clone https://github.com/aedocw/epub2tts
 WORKDIR /epub2tts
 
 # Install Python dependencies
-RUN pip install .
+RUN pip3 install .
 
 # Define entrypoint
 ENTRYPOINT ["epub2tts"]

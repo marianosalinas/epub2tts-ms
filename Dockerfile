@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:latest
 
 # Install necessary system packages
 RUN apt-get update && \
@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get install -y python3-pip
 
 # Install CUDA toolkit if needed (uncomment if using GPU)
-# RUN apt-get install -y nvidia-cuda-toolkit
+RUN apt-get install -y nvidia-cuda-toolkit
 
 # Clone the repo
 RUN git clone https://github.com/aedocw/epub2tts
